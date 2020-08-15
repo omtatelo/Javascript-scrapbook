@@ -9,6 +9,11 @@ var gerardo ={
     pianista: false,
     futbol: true
 }
+var padme ={
+    nombre: "Padme",
+    apellido: "Hernández Valdés",
+    edad: 7
+}
 function imprimirProfesiones(persona){
     console.log(`${persona.nombre} es:`)
     if (persona.ingeniero){
@@ -35,11 +40,25 @@ function imprimirProfesiones(persona){
 
 imprimirProfesiones(gerardo);
 
-function imprimirSiEsMayorDeEdad(persona){
+/* function imprimirSiEsMayorDeEdad(persona){
     if(persona.edad >17){
         console.log(`${persona.nombre} es mayor de edad`)
     }else{
         console.log(`${persona.nombre} es un morrillo.`)
     }
+} */
+
+const MAYORIA_DE_EDAD = 18
+
+function esMayorDeEdad(persona){
+    return persona.edad >= MAYORIA_DE_EDAD
 }
-imprimirSiEsMayorDeEdad(gerardo);
+
+function imprimirSiEsMayorDeEdad(persona){
+    if (esMayorDeEdad(persona)){
+        console.log(`${persona.nombre} es mayor de edad.`);
+    }else{
+        console.log(`${persona.nombre} es un queso.`);
+    }
+}
+imprimirSiEsMayorDeEdad(padme);
