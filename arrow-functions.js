@@ -52,4 +52,4 @@ permitirAcceso(gerardo);
 
 //función esmenordeedad como arrow function y que retorne la negación a la llamada es mayor de edad
 
-const esMenorDeEdad = ({edad}) => edad = 
+const esMenorDeEdad = ({edad}) => edad <  MAYORIA_DE_EDAD
