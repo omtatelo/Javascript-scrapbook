@@ -50,16 +50,6 @@ permitirAcceso(padme);
 permitirAcceso(gerardo);
 
 
-//código par aecharle carrilla a toño ya dany
-const tssss = ({ toñoYDani}) => toniooYDani = "die"
+//función esmenordeedad como arrow function y que retorne la negación a la llamada es mayor de edad
 
-function cotizacion(diaDeLaSemana, toñoYDani){
-    switch (diaDeLaSemana){
-        case sabado: 
-            tssss(toñoYDani);
-            break;
-        case domingo:
-            tssss(toñoYDani);
-            break;
-    } 
-}
+const esMenorDeEdad = ({edad}) => edad = 
