@@ -49,6 +49,22 @@ var personas = [sacha, alan, martin, dario, vicky, paula]
     return persona.altura > 1.8
 }) */
 
-var personasBajas = personas.filter(esBaja)
+//var personasBajas = personas.filter(esBaja)
 //console.log(personasAltas)
-console.log(personasBajas)
+
+/* const pasarAlturaACms = persona => {
+    
+    return {
+        ...persona,
+        altura: persona.altura * 100
+    }
+} */
+
+const pasarAlturaACms = persona => ({
+        ...persona,
+        altura: persona.altura * 100
+})
+
+var personasCms = personas.map(pasarAlturaACms)
+
+console.table(personasCms)
