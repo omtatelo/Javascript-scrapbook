@@ -18,7 +18,9 @@ const opts = {
 function obtenerPersonaje(id, callback) {
     const url = `${API_URL}${PEOLE_URL.replace(`:id`, id)}`
     //Callback,  función que se ejecutará n el futuro.
-    $.get(url, opts, callback)
+    $.get(url, opts, callback).fail(function () {
+        console.log(`Error porque Dios te odia`)
+    })
 }
 
 
@@ -33,6 +35,22 @@ obtenerPersonaje(1, function (personaje) {
 
             obtenerPersonaje(14, function (personaje) {
                 console.log(`Hola, yo soy ${personaje.name}`)
+
+                obtenerPersonaje(11, function (personaje) {
+                    console.log(`Hola, yo soy ${personaje.name}`)
+                    
+                    obtenerPersonaje(4, function (personaje) {
+                        console.log(`Hola, yo soy ${personaje.name}`)
+
+                        obtenerPersonaje(3, function (personaje) {
+                            console.log(`Hola, yo soy ${personaje.name}`)
+
+                            obtenerPersonaje(13, function (personaje) {
+                                console.log(`Hola, yo soy ${personaje.name}`)
+                            })
+                        })
+                    })
+                })
             })
         })
     })
