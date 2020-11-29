@@ -21,7 +21,7 @@ function obtenerPersonaje(id, callback) {
 
     $
         .get(url, opts, callback)
-        .fail(function () {
+        .fail(()  =>{
 
         console.log(`Error porque Dios te odia`)
     })
