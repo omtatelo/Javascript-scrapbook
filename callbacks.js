@@ -16,7 +16,11 @@ const opts = { crossDomain: true }
 function obtenerPersonaje(id, callback) {
     const url = `${API_URL}${PEOLE_URL.replace(`:id`, id)}`
     //Callback,  función que se ejecutará n el futuro.
-    $.get(url, opts, 
+    $.get(url, opts, function (persona) {
+        console.log(`Hola, yo soy ${persona.name}`)
+        if (callback){
+            callback()
+        }
     })
 }
 
