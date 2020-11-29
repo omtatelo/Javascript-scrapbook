@@ -18,9 +18,11 @@ const opts = {
 function obtenerPersonaje(id, callback) {
     const url = `${API_URL}${PEOLE_URL.replace(`:id`, id)}`
     //Callback,  función que se ejecutará n el futuro.
+
     $
         .get(url, opts, callback)
         .fail(function () {
+
         console.log(`Error porque Dios te odia`)
     })
 }
