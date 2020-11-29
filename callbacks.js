@@ -10,32 +10,30 @@
 const API_URL = 'https://swapi.dev/api/'
 const PEOLE_URL = 'people/:id'
 
-const opts = { crossDomain: true }
+const opts = {
+    crossDomain: true
+}
 
 
 function obtenerPersonaje(id, callback) {
     const url = `${API_URL}${PEOLE_URL.replace(`:id`, id)}`
     //Callback,  función que se ejecutará n el futuro.
-    $.get(url, opts, function (persona) {
-        console.log(`Hola, yo soy ${persona.name}`)
-        if (callback){
-            callback()
-        }
-    })
+    $.get(url, opts, callback)
 }
 
 
 //Hacer los callbacks en orden
-obtenerPersonaje(1, function(){
-    obtenerPersonaje(5, function(){
-        obtenerPersonaje(10, function(){
-            obtenerPersonaje(14)
+obtenerPersonaje(1, function (personaje) {
+    console.log(`Hola, yo soy ${personaje.name}`)
+
+    obtenerPersonaje(5, function (personaje) {
+        console.log(`Hola, yo soy ${personaje.name}`)
+        obtenerPersonaje(10, function (personaje) {
+            console.log(`Hola, yo soy ${personaje.name}`)
+
+            obtenerPersonaje(14, function (personaje) {
+                console.log(`Hola, yo soy ${personaje.name}`)
+            })
         })
     })
 })
-
-
-
-
-
-
