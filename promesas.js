@@ -18,12 +18,56 @@ function obtenerPersonaje(id) {
 }
 
 function onError(id) {
-    console.log(`Error porque Dios te odia. No obtuvimos a ${personaje.name}`)
+    console.log(`Error porque Dios te odia. No obtuvimos a ${id}`)
 }
 
-obtenerPersonaje(10)
-    .then(function (personaje) {
+obtenerPersonaje(1)
+    .then(personaje => {
         console.log(`Hola, Padme. Soy ${personaje.name}`)
+        return obtenerPersonaje(2)
 
+    })
+    .then(personaje => {
+        console.log(`Hola, Padme. Soy ${personaje.name}`)
+        return obtenerPersonaje(3)
+
+    })
+    .then(personaje => {
+        console.log(`Hola, Padme. Soy ${personaje.name}`)
+        return obtenerPersonaje(4)
+
+    })
+    .then(personaje => {
+        console.log(`Hola, Padme. Soy ${personaje.name}`)
+        return obtenerPersonaje(5)
+
+    })
+    .then(personaje => {
+        console.log(`Hola, Padme. Soy ${personaje.name}`)
+        return obtenerPersonaje(6)
+
+    })
+    .then(personaje => {
+        console.log(`Hola, Padme. Soy ${personaje.name}`)
+        return obtenerPersonaje(7)
+
+    })
+    .then(personaje => {
+        console.log(`Hola, Padme. Soy ${personaje.name}`)
+        return obtenerPersonaje(8)
+
+    })
+    .then(personaje => {
+        console.log(`Hola, Padme. Soy ${personaje.name}`)
+        return obtenerPersonaje(9)
+
+    })
+    .then(personaje => {
+        console.log(`Hola, Padme. Soy ${personaje.name}`)
+        return obtenerPersonaje(10)
+
+    })
+    .then(personaje => {
+        console.log(`Hola, Padme. Soy ${personaje.name}`)
     })
     .catch(onError)
