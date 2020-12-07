@@ -5,7 +5,6 @@ const opts = {
     crossDomain: true
 }
 
-
 function obtenerPersonaje(id) {
     return new Promise((resolve, reject) => {
         const url = `${API_URL}${PEOLE_URL.replace(`:id`, id)}`
@@ -20,6 +19,21 @@ function obtenerPersonaje(id) {
 function onError(id) {
     console.log(`Error porque Dios te odia. No obtuvimos a ${id}`)
 }
+
+var ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// var promesas = ids.map(fuction(id){
+//     return obtenerPersonaje(id)
+// })
+var promesas = ids.map(id => obtenerPersonaje(id))
+Promise
+    .all(promesas)
+    .then(personajes => console.log(personajes))
+    .catch(onError)
+
+
+
+
+/*
 
 obtenerPersonaje(1)
     .then(personaje => {
@@ -69,5 +83,6 @@ obtenerPersonaje(1)
     })
     .then(personaje => {
         console.log(`Hola, Padme. Soy ${personaje.name}`)
-    })
-    .catch(onError)
+    }) */
+    
+    // .catch(onError)
