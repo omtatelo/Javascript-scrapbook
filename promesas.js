@@ -20,69 +20,15 @@ function onError(id) {
     console.log(`Error porque Dios te odia. No obtuvimos a ${id}`)
 }
 
-var ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-// var promesas = ids.map(fuction(id){
-//     return obtenerPersonaje(id)
-// })
-var promesas = ids.map(id => obtenerPersonaje(id))
-Promise
-    .all(promesas)
-    .then(personajes => console.log(personajes))
-    .catch(onError)
+async function obtenerPersonajes() {
+    var ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    var promesas = ids.map(id => obtenerPersonaje(id))
+    try {
+        var personajes = await Promise.all(promesas)
+        console.log(personajes)
+    } catch (id){
+        onError(id)
+    }
+}
 
-
-
-
-/*
-
-obtenerPersonaje(1)
-    .then(personaje => {
-        console.log(`Hola, Padme. Soy ${personaje.name}`)
-        return obtenerPersonaje(2)
-
-    })
-    .then(personaje => {
-        console.log(`Hola, Padme. Soy ${personaje.name}`)
-        return obtenerPersonaje(3)
-
-    })
-    .then(personaje => {
-        console.log(`Hola, Padme. Soy ${personaje.name}`)
-        return obtenerPersonaje(4)
-
-    })
-    .then(personaje => {
-        console.log(`Hola, Padme. Soy ${personaje.name}`)
-        return obtenerPersonaje(5)
-
-    })
-    .then(personaje => {
-        console.log(`Hola, Padme. Soy ${personaje.name}`)
-        return obtenerPersonaje(6)
-
-    })
-    .then(personaje => {
-        console.log(`Hola, Padme. Soy ${personaje.name}`)
-        return obtenerPersonaje(7)
-
-    })
-    .then(personaje => {
-        console.log(`Hola, Padme. Soy ${personaje.name}`)
-        return obtenerPersonaje(8)
-
-    })
-    .then(personaje => {
-        console.log(`Hola, Padme. Soy ${personaje.name}`)
-        return obtenerPersonaje(9)
-
-    })
-    .then(personaje => {
-        console.log(`Hola, Padme. Soy ${personaje.name}`)
-        return obtenerPersonaje(10)
-
-    })
-    .then(personaje => {
-        console.log(`Hola, Padme. Soy ${personaje.name}`)
-    }) */
-    
-    // .catch(onError)
+obtenerPersonajes()
